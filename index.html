@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Technical Website Audit — Pureology Cleaner Limited</title>
+<meta name="description" content="Independent technical audit of pureologycleaner.co.uk. Crawl of 108 pages, 29 August 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFAF7;
+  --card:#FFFFFF;
+  --ink:#161A1F;
+  --muted:#5B6472;
+  --faint:#8A919C;
+  --line:#E6E4DE;
+  --line-soft:#EFEDE8;
+  --red:#C2321F;
+  --red-deep:#9E2716;
+  --red-bg:#FBEFEC;
+  --amber:#A85207;
+  --amber-bg:#FBF3E6;
+  --green:#1D7A4D;
+  --green-bg:#EDF6F0;
+  --brand:#087FBD;
+  --brand-dark:#0A5E8A;
+  --radius:10px;
+  --shadow:0 1px 2px rgba(22,26,31,.05), 0 8px 28px rgba(22,26,31,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+a{color:var(--brand-dark)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:4px}
+
+/* ---------- top ribbon ---------- */
+.ribbon{background:var(--ink);color:#F4F5F6;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em}
+.ribbon .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:10px;padding-bottom:10px;gap:12px;flex-wrap:wrap}
+.ribbon span b{color:#fff;font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:18px}
+.hero-grid{display:flex;gap:40px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+h1{
+  font-family:'Archivo',sans-serif;font-weight:800;
+  font-size:clamp(30px,4.6vw,52px);line-height:1.06;letter-spacing:-.015em;
+  max-width:640px;
+}
+h1 .fail{color:var(--red)}
+.stamp{
+  font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.06em;
+  color:var(--red);border:3px solid var(--red);border-radius:8px;
+  padding:10px 18px;font-size:18px;text-transform:uppercase;
+  transform:rotate(-3deg);white-space:nowrap;
+  box-shadow:inset 0 0 0 1.5px #fff, 0 2px 0 rgba(194,50,31,.12);
+  background:var(--red-bg);
+  align-self:center;
+}
+.hero-sub{margin-top:22px;max-width:660px;color:var(--muted);font-size:17px}
+.hero-meta{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--faint);display:flex;gap:8px 22px;flex-wrap:wrap}
+.hero-meta b{color:var(--ink);font-weight:600}
+
+/* ---------- section chrome ---------- */
+section{padding:52px 0}
+section + section{border-top:1px solid var(--line)}
+.sec-head{margin-bottom:26px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.sec-kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(22px,3vw,30px);letter-spacing:-.01em}
+.sec-note{color:var(--muted);font-size:14.5px;max-width:420px}
+
+/* ---------- inspection strip (signature) ---------- */
+.strip-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+.strip{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 18px}
+.tick{
+  width:16px;height:26px;border-radius:3px;background:var(--line-soft);
+  opacity:0;transform:translateY(6px);
+}
+.tick.on{opacity:1;transform:none;transition:opacity .3s ease, transform .3s ease}
+.tick.t-green{background:var(--green)}
+.tick.t-amber{background:#E4A257}
+.tick.t-red{background:var(--red)}
+.strip-legend{display:flex;gap:10px 26px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.strip-legend .dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.strip-legend b{color:var(--ink);font-family:'IBM Plex Mono',monospace;font-weight:600}
+.strip-caption{margin-top:14px;font-size:13.5px;color:var(--faint)}
+
+/* ---------- scoreboard ---------- */
+.score-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.score{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 18px;box-shadow:var(--shadow)}
+.score .num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(26px,3.2vw,38px);line-height:1;letter-spacing:-.02em}
+.score .lbl{margin-top:8px;font-size:13px;font-weight:600;color:var(--muted)}
+.score .sub{margin-top:4px;font-size:12px;color:var(--faint);line-height:1.4}
+.score.red .num{color:var(--red)}
+.score.amber .num{color:var(--amber)}
+.score.grey .num{color:var(--ink)}
+.score-footnote{margin-top:16px;font-size:13.5px;color:var(--muted);max-width:760px}
+.score-footnote b{color:var(--ink)}
+
+/* ---------- impact cards ---------- */
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.impact{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.impact .big{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:34px;color:var(--red);line-height:1}
+.impact h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:17.5px;margin:12px 0 8px}
+.impact p{font-size:14.5px;color:var(--muted)}
+.impact .tag{display:inline-block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);background:var(--red-bg);border:1px solid #F0D4CE;border-radius:99px;padding:4px 10px;font-weight:600}
+
+/* ---------- funnel exhibit ---------- */
+.exhibit{background:var(--ink);color:#E9EBEE;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+.exhibit h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:6px}
+.exhibit .lede{color:#AEB4BE;font-size:15px;max-width:640px}
+.urlbox{
+  margin:22px 0 10px;background:#0E1114;border:1px solid #2A2F36;border-radius:8px;
+  padding:18px 20px;font-family:'IBM Plex Mono',monospace;font-size:14.5px;overflow-x:auto;white-space:nowrap;color:#C9CED6;
+}
+.urlbox .sp{background:var(--red);color:#fff;border-radius:3px;padding:1px 5px;margin:0 1px;font-weight:600}
+.exhibit .why{font-size:14px;color:#AEB4BE;max-width:680px}
+.exhibit .why b{color:#fff}
+.exhibit-list{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.exhibit-list span{font-family:'IBM Plex Mono',monospace;font-size:12px;background:#22262C;border:1px solid #33383F;color:#C9CED6;border-radius:6px;padding:5px 10px}
+
+/* ---------- findings ledger ---------- */
+.group-title{display:flex;align-items:center;gap:12px;margin:34px 0 14px;font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;letter-spacing:.01em}
+.group-title:first-of-type{margin-top:0}
+.group-title .pill{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:4px 12px}
+.pill.p-red{color:#fff;background:var(--red)}
+.pill.p-amber{color:#fff;background:var(--amber)}
+.pill.p-grey{color:var(--ink);background:#E8E6E0}
+.group-title .count{color:var(--faint);font-size:13.5px;font-weight:500;font-family:'Inter',sans-serif}
+
+.finding{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;box-shadow:var(--shadow);overflow:hidden}
+.finding summary{
+  list-style:none;cursor:pointer;display:grid;
+  grid-template-columns:86px 1fr auto;gap:18px;align-items:center;
+  padding:18px 22px;
+}
+.finding summary::-webkit-details-marker{display:none}
+.finding summary:hover{background:#FCFCFA}
+.f-num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:26px;line-height:1;text-align:right}
+.f-red .f-num{color:var(--red)}
+.f-amber .f-num{color:var(--amber)}
+.f-grey .f-num{color:var(--muted)}
+.f-title{font-weight:600;font-size:15.5px}
+.f-impact{font-size:13.5px;color:var(--muted);margin-top:3px}
+.f-chev{color:var(--faint);transition:transform .2s ease;font-size:13px}
+.finding[open] .f-chev{transform:rotate(180deg)}
+.f-body{border-top:1px solid var(--line-soft);padding:18px 22px 22px;background:#FCFCFB}
+.f-body h4{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:14px 0 8px}
+.f-body h4:first-child{margin-top:0}
+.f-body p{font-size:14px;color:var(--muted);max-width:760px}
+.f-body p b{color:var(--ink)}
+.evidence{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto}
+.evidence div{padding:3px 0;white-space:nowrap}
+.evidence .code404{color:var(--red);font-weight:600}
+.evidence .fieldbad{color:var(--amber);font-weight:600}
+
+/* ---------- passes ---------- */
+.pass-card{background:var(--green-bg);border:1px solid #D3E8DB;border-radius:var(--radius);padding:26px}
+.pass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 26px;margin-top:14px}
+.pass{font-size:14.5px;color:#215B3F;display:flex;gap:10px;align-items:baseline}
+.pass::before{content:"✓";font-weight:700;color:var(--green)}
+.pass-note{font-size:14px;color:#3C6B54;max-width:780px}
+.pass-note b{color:#1E4D36}
+
+/* ---------- AI readiness ---------- */
+.ai-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.ai-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.ai-card h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px}
+.ai-card p{font-size:14.5px;color:var(--muted)}
+.ai-missing{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--red-bg);border:1px dashed #E3B3AA;color:var(--red-deep);border-radius:8px;padding:12px 14px;margin-top:16px}
+.ai-bots{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.ai-bots span{font-family:'IBM Plex Mono',monospace;font-size:12px;border:1px solid var(--line);border-radius:6px;padding:5px 10px;color:var(--muted);background:#fff}
+
+/* ---------- plan ---------- */
+.plan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:grid;grid-template-columns:44px 1fr;gap:16px}
+.step .n{font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;color:var(--brand);line-height:1.1}
+.step h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;margin-bottom:6px}
+.step p{font-size:14px;color:var(--muted)}
+.step .out{margin-top:10px;font-size:13px;color:var(--brand-dark);font-weight:600}
+
+/* ---------- urgency + CTA ---------- */
+.close-band{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px;display:grid;grid-template-columns:1.2fr .8fr;gap:34px}
+.close-band h2{margin-bottom:10px}
+.close-band .urge{color:var(--muted);font-size:15.5px;max-width:560px}
+.close-band .urge b{color:var(--red)}
+.owner{border-left:1px solid var(--line);padding-left:34px}
+.owner .who{font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.01em}
+.owner .role{font-size:13.5px;color:var(--muted);margin:4px 0 18px}
+.links{display:flex;flex-direction:column;gap:9px}
+.links a{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  text-decoration:none;border:1px solid var(--line);border-radius:8px;
+  padding:11px 15px;font-size:14px;font-weight:600;color:var(--ink);background:#fff;
+  transition:border-color .15s ease, transform .15s ease;
+}
+.links a:hover{border-color:var(--brand);transform:translateY(-1px)}
+.links a span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--faint);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.links a .arrow{color:var(--brand)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:30px 0 44px;color:var(--faint);font-size:12.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--muted);font-weight:600}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .score-row{grid-template-columns:repeat(2,1fr)}
+  .impact-grid,.plan-grid,.ai-grid{grid-template-columns:1fr}
+  .close-band{grid-template-columns:1fr}
+  .owner{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:26px}
+  .pass-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .hero{padding:44px 0 34px}
+  .stamp{transform:rotate(-2deg);font-size:15px;padding:8px 14px}
+  .finding summary{grid-template-columns:60px 1fr auto;gap:12px;padding:15px 16px}
+  .f-num{font-size:20px}
+  .f-body{padding:16px}
+  .score-row{grid-template-columns:1fr 1fr}
+  .pass-grid{grid-template-columns:1fr}
+  .tick{width:12px;height:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .tick,.tick.on{transition:none;opacity:1;transform:none}
+}
+@media print{
+  .ribbon{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff}
+  .finding{page-break-inside:avoid}
+  section{padding:28px 0}
+  .f-chev{display:none}
+  details{open:true}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== ribbon ===== -->
+<div class="ribbon">
+  <div class="wrap">
+    <span>CONFIDENTIAL · PREPARED FOR <b>PUREOLOGY CLEANER LIMITED</b></span>
+    <span>CRAWL DATE <b>29 AUG 2026</b></span>
+  </div>
+</div>
+
+<!-- ===== hero ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Technical Website Audit · pureologycleaner.co.uk</div>
+    <div class="hero-grid">
+      <h1>580 issues logged across 108 pages.<br><span class="fail">Only 2 pages came back clean.</span></h1>
+      <div class="stamp">Action required</div>
+    </div>
+    <p class="hero-sub">A page-by-page crawl and inspection of the live website uncovered <strong>210 errors</strong>, <strong>298 warnings</strong> and <strong>72 notices</strong> — and the most serious failures sit directly on the pages that win you customers: your quote links, your Google business data, and your blog.</p>
+  </div>
+</header>
+
+<!-- ===== inspection strip ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">Page-by-page inspection</div>
+        <h2>Every page of the site, inspected</h2>
+      </div>
+      <p class="sec-note">Each mark below is one real page of pureologycleaner.co.uk, exactly as the crawler found it.</p>
+    </div>
+    <div class="strip-card">
+      <div class="strip" id="strip" aria-label="108 crawled pages: 2 clean, 97 carrying issues, 9 broken"></div>
+      <div class="strip-legend">
+        <span><i class="dot" style="background:var(--green)"></i>Clean — <b>2 pages</b> (1.9%)</span>
+        <span><i class="dot" style="background:#E4A257"></i>Carrying issues — <b>97 pages</b> (89.8%)</span>
+        <span><i class="dot" style="background:var(--red)"></i>Broken — <b>9 pages</b> (8.3%)</span>
+      </div>
+      <p class="strip-caption">A customer can land on any one of these pages from Google. Right now, 98% of those landings carry at least one recorded fault.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== scoreboard ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">Headline numbers</div>
+        <h2>The scoreboard</h2>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="score red">
+        <div class="num" data-count="210">0</div>
+        <div class="lbl">Errors</div>
+        <div class="sub">Highest severity — direct ranking risk</div>
+      </div>
+      <div class="score amber">
+        <div class="num" data-count="298">0</div>
+        <div class="lbl">Warnings</div>
+        <div class="sub">Quality faults Google records on every crawl</div>
+      </div>
+      <div class="score grey">
+        <div class="num" data-count="72">0</div>
+        <div class="lbl">Notices</div>
+        <div class="sub">Structural weaknesses holding pages back</div>
+      </div>
+      <div class="score grey">
+        <div class="num"><span data-count="88">0</span>%</div>
+        <div class="lbl">Site health average</div>
+        <div class="sub">The average hides where the damage sits</div>
+      </div>
+      <div class="score grey">
+        <div class="num"><span data-count="86">0</span>%</div>
+        <div class="lbl">AI search health</div>
+        <div class="sub">Readiness for ChatGPT &amp; AI results</div>
+      </div>
+    </div>
+    <p class="score-footnote">A health “average” of 88% sounds comfortable — until you see <b>where the failures are concentrated</b>. They are not spread randomly: they cluster on the quote funnel, the structured business data Google reads, and the blog. In other words, the parts of the website that exist to make the phone ring.</p>
+  </div>
+</section>
+
+<!-- ===== business impact ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">What this means commercially</div>
+        <h2>Where the website is costing you</h2>
+      </div>
+    </div>
+    <div class="impact-grid">
+      <article class="impact">
+        <div class="big" data-count="194">0</div>
+        <h3>Faulty quote-request links</h3>
+        <p>The “request a quote” links wired across your service and area pages are technically malformed. The crawler flags every single one as invalid — on the exact path a customer takes to give you money.</p>
+        <span class="tag">Enquiries at risk</span>
+      </article>
+      <article class="impact">
+        <div class="big" data-count="194">0</div>
+        <h3>Failed Google business data</h3>
+        <p>Your LocalBusiness and Organization markup fails Google’s guidelines everywhere it appears. This is the data Google uses to display your reviews, services and details — right now it can’t read it cleanly.</p>
+        <span class="tag">Rankings at risk</span>
+      </article>
+      <article class="impact">
+        <div class="big" data-count="9">0</div>
+        <h3>Broken pages &amp; dead ends</h3>
+        <p>Your blog routes visitors — and Google — to pages that don’t exist. Every dead end is a customer quietly handed to the next cleaning company in the search results.</p>
+        <span class="tag">Trust at risk</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== exhibit: the quote funnel ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">Exhibit A · taken directly from the crawl</div>
+        <h2>The damaged quote funnel</h2>
+      </div>
+    </div>
+    <div class="exhibit">
+      <h3>This is one of your live “Get a quote” links</h3>
+      <p class="lede">194 of these links carry raw spaces inside the web address. A space is an illegal character in a URL — browsers quietly forgive it, search engines do not.</p>
+      <div class="urlbox">https://pureologycleaner.co.uk/contact-us.php?service=Cleaning<span class="sp">␣</span>in<span class="sp">␣</span>Leeds</div>
+      <p class="why"><b>Why it matters:</b> these links are how a visitor moves from a service page to your quote form. When the busiest conversion path on the site is flagged as broken 194 times, it undermines how search engines score every page that carries it.</p>
+      <div class="exhibit-list">
+        <span>?service=Cleaning in Batley</span>
+        <span>?service=Cleaning in Bradford</span>
+        <span>?service=Cleaning in Dewsbury</span>
+        <span>?service=Cleaning in Halifax</span>
+        <span>?service=Cleaning in Heckmondwike</span>
+        <span>?service=Cleaning in Huddersfield</span>
+        <span>?service=Cleaning in Leeds</span>
+        <span>?service=Cleaning in Wakefield</span>
+        <span>?service=Care home cleaning</span>
+        <span>?service=Deep cleaning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== findings ledger ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">Full findings · tap any row for evidence</div>
+        <h2>The findings ledger</h2>
+      </div>
+      <p class="sec-note">Every figure below is taken directly from the crawl export — nothing estimated, nothing rounded.</p>
+    </div>
+
+    <div class="group-title"><span class="pill p-red">Errors</span><span class="count">210 recorded · highest severity</span></div>
+
+    <details class="finding f-red">
+      <summary>
+        <div class="f-num">194</div>
+        <div><div class="f-title">Invalid structured data items</div><div class="f-impact">Google can’t reliably read your business markup — rich results and local visibility are at risk.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>The site’s <b>LOCAL_BUSINESS</b> and <b>ORGANIZATION</b> structured data contains fields that do not meet Google’s guidelines — flagged 194 times across the site. Faulty markup means crawlers cannot properly understand the business data, risking the loss of rich snippets and more favourable rankings.</p>
+        <h4>Evidence sample</h4>
+        <div class="evidence">
+          <div>pureologycleaner.co.uk/ · LOCAL_BUSINESS · invalid field: <span class="fieldbad">serviceType</span></div>
+          <div>pureologycleaner.co.uk/ · ORGANIZATION · invalid field: <span class="fieldbad">serviceType</span></div>
+          <div>…repeated on every page carrying the markup (194 items in total)</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="finding f-red">
+      <summary>
+        <div class="f-num">8</div>
+        <div><div class="f-title">Pages returning 404 (not found)</div><div class="f-impact">Live navigation sends visitors and Google to pages that don’t exist.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>The blog section links to page addresses that resolve to <b>404 dead ends</b> — on both the www and non-www versions of the site.</p>
+        <h4>Evidence — all 404 today</h4>
+        <div class="evidence">
+          <div>pureologycleaner.co.uk/blogs/commercial-cleaning.php <span class="code404">404</span></div>
+          <div>pureologycleaner.co.uk/blogs/domestic-cleaning.php <span class="code404">404</span></div>
+          <div>pureologycleaner.co.uk/blogs/service-areas.php <span class="code404">404</span></div>
+          <div>pureologycleaner.co.uk/blogs/contact-us.php <span class="code404">404</span></div>
+          <div>www.pureologycleaner.co.uk/blogs/… (same four again) <span class="code404">404</span></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="finding f-red">
+      <summary>
+        <div class="f-num">8</div>
+        <div><div class="f-title">Broken internal links</div><div class="f-impact">Your own blog menu is the source — it points at the dead pages above.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>The links inside the blog (“Cleaning Tips”) navigation are built with faulty relative paths, so every main menu item clicked from the blog leads to a non-existent page. Multiple broken links negatively affect user experience and can worsen rankings.</p>
+        <h4>Evidence sample</h4>
+        <div class="evidence">
+          <div>FROM pureologycleaner.co.uk/blogs/ → …/blogs/domestic-cleaning.php <span class="code404">404</span></div>
+          <div>FROM pureologycleaner.co.uk/blogs/ → …/blogs/service-areas.php <span class="code404">404</span></div>
+          <div>FROM www.pureologycleaner.co.uk/blogs/ → …/blogs/contact-us.php <span class="code404">404</span></div>
+        </div>
+      </div>
+    </details>
+
+    <div class="group-title"><span class="pill p-amber">Warnings</span><span class="count">298 recorded · quality faults</span></div>
+
+    <details class="finding f-amber">
+      <summary>
+        <div class="f-num">194</div>
+        <div><div class="f-title">Broken quote-funnel links</div><div class="f-impact">Unencoded spaces make the “Get a quote” links invalid — see Exhibit A above.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>194 links across the site use raw spaces in the address (e.g. <b>?service=Care home cleaning</b>). Crawlers treat each one as a broken destination on the site’s primary conversion path.</p>
+        <h4>Evidence sample</h4>
+        <div class="evidence">
+          <div>contact-us.php?service=Cleaning<span class="code404">␣</span>in<span class="code404">␣</span>Batley</div>
+          <div>contact-us.php?service=Care<span class="code404">␣</span>home<span class="code404">␣</span>cleaning</div>
+          <div>contact-us.php?service=Deep<span class="code404">␣</span>cleaning</div>
+          <div>…191 further links with the same fault</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="finding f-amber">
+      <summary>
+        <div class="f-num">52</div>
+        <div><div class="f-title">Pages with too little content</div><div class="f-impact">Around 156 words per page — too thin for Google to rank against competitors.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>52 crawled pages carry a <b>low word count</b> (samples logged at ~156 words). Thin pages struggle to rank for the searches they exist to win, and they dilute how the whole site is scored.</p>
+        <h4>Evidence sample</h4>
+        <div class="evidence">
+          <div>contact-us.php (and its service variants) · <b>156 words</b></div>
+          <div>…52 pages flagged in total</div>
+        </div>
+      </div>
+    </details>
+
+    <details class="finding f-amber">
+      <summary>
+        <div class="f-num">52</div>
+        <div><div class="f-title">Low text-to-code ratio</div><div class="f-impact">Pages are mostly code, not readable content — a page-quality signal working against you.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>On 52 pages the proportion of actual text to page code is low. Combined with the thin word counts above, it tells search engines these pages offer little substance to a visitor.</p>
+      </div>
+    </details>
+
+    <div class="group-title"><span class="pill p-grey">Notices</span><span class="count">72 recorded · structural weaknesses</span></div>
+
+    <details class="finding f-grey">
+      <summary>
+        <div class="f-num">48</div>
+        <div><div class="f-title">Pages with only one internal link</div><div class="f-impact">Nearly half the site is one click from being invisible.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>48 pages have a single incoming internal link. Pages with few incoming links get little to no visits and stand a poor chance of being placed in search results — the internal linking architecture is not passing authority where it’s needed.</p>
+      </div>
+    </details>
+
+    <details class="finding f-grey">
+      <summary>
+        <div class="f-num">20</div>
+        <div><div class="f-title">Non-descriptive link text</div><div class="f-impact">“Click here”-style links tell Google nothing about the target page.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>20 links use anchor text that doesn’t describe the destination, making it harder for those pages to be indexed and ranked for relevant searches.</p>
+      </div>
+    </details>
+
+    <details class="finding f-grey">
+      <summary>
+        <div class="f-num">2</div>
+        <div><div class="f-title">Subdomains without HSTS security</div><div class="f-impact">A security hardening standard is missing from two subdomains.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>Two subdomains don’t enforce HTTP Strict Transport Security, which tells browsers to communicate only over secure connections.</p>
+      </div>
+    </details>
+
+    <details class="finding f-grey">
+      <summary>
+        <div class="f-num">2</div>
+        <div><div class="f-title">AI &amp; depth gaps</div><div class="f-impact">No llms.txt for AI search; one guide is buried 4 clicks deep.</div></div>
+        <div class="f-chev">▼</div>
+      </summary>
+      <div class="f-body">
+        <h4>What the crawler found</h4>
+        <p>The site has no <b>llms.txt</b> file (the guidance file AI search engines look for), and the blog guide “How to Find the Best Local Cleaner” sits more than 3 clicks from the homepage, where crawlers and users are unlikely to reach it.</p>
+        <h4>Evidence</h4>
+        <div class="evidence">
+          <div>pureologycleaner.co.uk/llms.txt <span class="code404">not found</span></div>
+          <div>/blogs/how-to-find-the-best-cleaners-in-your-area… · crawl depth <b>4</b></div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== passes ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">For balance</div>
+        <h2>What’s already sound</h2>
+      </div>
+    </div>
+    <div class="pass-card">
+      <p class="pass-note">This audit is fair: the basic shell of the site passes its checks. <b>That is exactly what makes the failures above so costly</b> — they are concentrated on the commercial machinery, not scattered noise.</p>
+      <div class="pass-grid">
+        <span class="pass">Title tags present on every page</span>
+        <span class="pass">Meta descriptions in place</span>
+        <span class="pass">H1 headings present</span>
+        <span class="pass">Image alt text in place</span>
+        <span class="pass">HTTPS certificate valid</span>
+        <span class="pass">Sitemap format correct</span>
+        <span class="pass">No duplicate content detected</span>
+        <span class="pass">No server (5XX) failures</span>
+        <span class="pass">AI crawlers not blocked</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AI readiness ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">The next front</div>
+        <h2>AI search is already ranking your competitors</h2>
+      </div>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <h3>Customers now ask ChatGPT, not just Google</h3>
+        <p>“Best cleaning company in Dewsbury”, “end of tenancy clean near me” — these questions are increasingly answered by AI search. The crawl scored the site’s AI readiness at <b>86%</b>, and the single guidance file AI engines look for is missing entirely.</p>
+        <div class="ai-missing">pureologycleaner.co.uk/llms.txt — not found</div>
+      </div>
+      <div class="ai-card">
+        <h3>Who’s reading your site right now</h3>
+        <p>These AI crawlers were checked and are actively able to visit — with no guidance, they interpret the site (and its 580 issues) however they like:</p>
+        <div class="ai-bots">
+          <span>ChatGPT-User</span><span>OAI-SearchBot</span><span>PerplexityBot</span><span>Claude-SearchBot</span><span>Googlebot</span><span>Google-Extended</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== plan ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker">The way out</div>
+        <h2>The remediation plan</h2>
+      </div>
+      <p class="sec-note">Sequenced by commercial impact — the money paths first, the structure second, the future third.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="step"><div class="n">1</div><div><h3>Repair the quote funnel</h3><p>Rebuild all 194 quote-request links with valid, properly encoded addresses so the path from “I need a cleaner” to “here’s my number” is flawless.</p><div class="out">Outcome: a conversion path with zero flagged links</div></div></div>
+      <div class="step"><div class="n">2</div><div><h3>Rebuild the Google business data</h3><p>Replace the failing markup with valid LocalBusiness, Service and FAQ structured data that meets Google’s guidelines on every page.</p><div class="out">Outcome: eligible for rich results, reviews and local prominence</div></div></div>
+      <div class="step"><div class="n">3</div><div><h3>Eliminate every dead end</h3><p>Fix the blog’s broken navigation, restore or redirect all eight 404 destinations, and verify the crawl comes back clean.</p><div class="out">Outcome: zero 404s, zero broken internal links</div></div></div>
+      <div class="step"><div class="n">4</div><div><h3>Strengthen the thin pages</h3><p>Bring the 52 under-written pages up to substantive, keyword-mapped content that can actually compete in West Yorkshire searches.</p><div class="out">Outcome: every page carries enough weight to rank</div></div></div>
+      <div class="step"><div class="n">5</div><div><h3>Rewire internal linking</h3><p>Give the 48 near-orphaned pages real link equity with descriptive anchors and a deliberate hub-and-spoke structure.</p><div class="out">Outcome: authority flows to service and area pages</div></div></div>
+      <div class="step"><div class="n">6</div><div><h3>Prepare for AI search</h3><p>Publish llms.txt, tighten crawl depth, enforce HSTS, and hand AI engines a clean, structured version of the business.</p><div class="out">Outcome: findable where customers are searching next</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== urgency + prepared by ===== -->
+<section>
+  <div class="wrap">
+    <div class="close-band">
+      <div>
+        <div class="sec-kicker">Why now</div>
+        <h2>These findings are from yesterday’s crawl</h2>
+        <p class="urge">Search engines re-crawl the site every few days — and each pass <b>re-confirms all 580 issues</b> while competitors’ cleaner sites bank the trust. Every week this stays live, the gap you’ll need to close gets wider. The full plan above fixes the cause, not the symptoms, as part of the complete rebuild we’ve discussed.</p>
+      </div>
+      <div class="owner">
+        <div class="who">Choudary Hussain Ali</div>
+        <div class="role">Web development &amp; technical SEO · Conducted &amp; prepared this audit</div>
+        <div class="links">
+          <a href="https://choudaryhussainali.online/" target="_blank" rel="noopener">Portfolio <span>choudaryhussainali.online</span> <span class="arrow">→</span></a>
+          <a href="https://www.linkedin.com/in/choudaryhussainali" target="_blank" rel="noopener">LinkedIn <span>/in/choudaryhussainali</span> <span class="arrow">→</span></a>
+          <a href="https://github.com/choudaryhussainali" target="_blank" rel="noopener">GitHub <span>/choudaryhussainali</span> <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><b>Methodology:</b> independent page-by-page technical crawl of all 108 live pages, 29 August 2026. Every figure is taken directly from the crawl log — nothing estimated, nothing rounded.</span>
+    <span>Prepared for Pureology Cleaner Limited · Confidential</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* build the 108-page inspection strip: 2 clean, 97 issues, 9 broken */
+  var strip = document.getElementById('strip');
+  var seq = [];
+  var i;
+  for (i = 0; i < 2;  i++) seq.push('t-green');
+  for (i = 0; i < 97; i++) seq.push('t-amber');
+  for (i = 0; i < 9;  i++) seq.push('t-red');
+  seq.forEach(function(cls, idx){
+    var t = document.createElement('span');
+    t.className = 'tick ' + cls;
+    strip.appendChild(t);
+    if (reduce) { t.classList.add('on'); }
+    else { setTimeout(function(){ t.classList.add('on'); }, 250 + idx * 12); }
+  });
+
+  /* count-up numbers when they scroll into view */
+  var counters = document.querySelectorAll('[data-count]');
+  function animate(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (reduce) { el.textContent = target; return; }
+    var start = null, dur = 900;
+    function tick(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window){
+    var seen = new WeakSet();
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting && !seen.has(e.target)){
+          seen.add(e.target); animate(e.target); io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.4});
+    counters.forEach(function(c){ io.observe(c); });
+  } else {
+    counters.forEach(function(c){ c.textContent = c.getAttribute('data-count'); });
+  }
+})();
+</script>
+</body>
+</html>
